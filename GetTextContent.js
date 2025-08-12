@@ -20,14 +20,14 @@ function GetTextContent(node, include = false, filter = () => include) {
     return text;
 }
 
-console.log(GetTextContent(
-    document.querySelector("#A"),
-    false,
-    function(element) {
-        if (element.classList.contains("poop")) {
-            element.style.color = "red";
-            return true;
-        }
-        return false;
-    }
-))
+// console.log(GetTextContent(
+//     document.querySelector("#A"),
+//     false,
+//     function(element) {
+//         if (element.classList.contains("poop")) {
+//             element.style.color = "red";
+//             return true;
+//         }
+//         return false;
+//     }
+// ))
