@@ -6,7 +6,10 @@ function GetTextContent(node, include = false, filter = () => include) {
         // console.log("test");
         for (const child of node.childNodes) {
             if (child.nodeType === Node.TEXT_NODE) {
-                text += child.nodeValue + " ";
+                node_text = child.nodeValue.trim();
+                if (node_text.length > 0) {
+                    text += node_text + " ";
+                }
             }
         }
         for (const child of node.children) {
@@ -30,8 +33,20 @@ function GetTextContent(node, include = false, filter = () => include) {
 
 // TODO: loop through childNodes and get text nodes 
 
+// console.log(GetTextContent(
+//     document.querySelector("#A"),
+//     false,
+//     (el) => (el.classList.contains("poop"))
+// ));
+
 console.log(GetTextContent(
     document.querySelector("#A"),
     false,
-    (el) => (el.classList.contains("poop"))
-));
+    function(element) {
+        if (element.classList.contains("poop")) {
+            element.style.color = "red";
+            return true;
+        }
+        return false;
+    }
+))
